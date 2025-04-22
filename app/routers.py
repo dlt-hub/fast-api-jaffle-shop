@@ -95,7 +95,17 @@ async def row_counts(db: duckdb.DuckDBPyConnection = Depends(get_db)):
     return _get_list_response(db, query)
 
 
-@customers_router.get("/customers", response_model=List[Customer])
+@customers_router.get(
+    "/customers",
+    response_model=List[Customer],
+    description=(
+        "Returns a paginated list of customers.\n\n"
+        "Pagination is controlled via the `page` query parameter (see `page`).\n\n"
+        "Each page returns a fixed number of results (see `page_size`).\n\n"
+        "If more results are available, the response will include a `Link` header with `rel=\"next\"` "
+        "that points to the next page.\n\n"
+    )
+)
 async def get_customers(
     page: int = 1,
     page_size: int = DEFAULT_PAGE_SIZE,
@@ -138,7 +148,17 @@ def _enrich_orders(db: duckdb.DuckDBPyConnection, orders: list[dict]):
     return orders
 
 
-@orders_router.get("/orders", response_model=List[Order])
+@orders_router.get(
+    "/orders",
+    response_model=List[Order],
+    description=(
+        "Returns a paginated list of orders.\n\n"
+        "Pagination is controlled via the `page` query parameter (see `page`).\n\n"
+        "Each page returns a fixed number of results (see `page_size`).\n\n"
+        "If more results are available, the response will include a `Link` header with `rel=\"next\"` "
+        "that points to the next page.\n\n"
+    )
+)
 async def get_orders(
     page: int = 1,
     page_size: int = DEFAULT_PAGE_SIZE,
@@ -177,7 +197,17 @@ async def get_order(order_id: str, db: duckdb.DuckDBPyConnection = Depends(get_d
 #
 # Items
 #
-@item_router.get("/items", response_model=List[Item])
+@item_router.get(
+    "/items",
+    response_model=List[Item],
+    description=(
+        "Returns a paginated list of items.\n\n"
+        "Pagination is controlled via the `page` query parameter (see `page`).\n\n"
+        "Each page returns a fixed number of results (see `page_size`).\n\n"
+        "If more results are available, the response will include a `Link` header with `rel=\"next\"` "
+        "that points to the next page.\n\n"
+    )
+)
 async def get_items(
     page: int = 1,
     page_size: int = DEFAULT_PAGE_SIZE,
@@ -203,7 +233,17 @@ async def get_item(item_id: str, db: duckdb.DuckDBPyConnection = Depends(get_db)
 #
 # Products
 #
-@product_router.get("/products", response_model=List[Product])
+@product_router.get(
+    "/products",
+    response_model=List[Product],
+    description=(
+        "Returns a paginated list of products.\n\n"
+        "Pagination is controlled via the `page` query parameter (see `page`).\n\n"
+        "Each page returns a fixed number of results (see `page_size`).\n\n"
+        "If more results are available, the response will include a `Link` header with `rel=\"next\"` "
+        "that points to the next page.\n\n"
+    )
+)
 async def get_products(
     page: int = 1,
     page_size: int = DEFAULT_PAGE_SIZE,
@@ -229,7 +269,17 @@ async def get_product(sku: str, db: duckdb.DuckDBPyConnection = Depends(get_db))
 #
 # Stores
 #
-@store_router.get("/stores", response_model=List[Store])
+@store_router.get(
+    "/stores",
+    response_model=List[Store],
+    description=(
+        "Returns a paginated list of stores.\n\n"
+        "Pagination is controlled via the `page` query parameter (see `page`).\n\n"
+        "Each page returns a fixed number of results (see `page_size`).\n\n"
+        "If more results are available, the response will include a `Link` header with `rel=\"next\"` "
+        "that points to the next page.\n\n"
+    )
+)
 async def get_stores(
     page: int = 1,
     page_size: int = DEFAULT_PAGE_SIZE,
@@ -255,7 +305,17 @@ async def get_store(store_id: str, db: duckdb.DuckDBPyConnection = Depends(get_d
 #
 # Supplies
 #
-@supplies_router.get("/supplies", response_model=List[Supply])
+@supplies_router.get(
+    "/supplies",
+    response_model=List[Supply],
+    description=(
+        "Returns a paginated list of supplies.\n\n"
+        "Pagination is controlled via the `page` query parameter (see `page`).\n\n"
+        "Each page returns a fixed number of results (see `page_size`).\n\n"
+        "If more results are available, the response will include a `Link` header with `rel=\"next\"` "
+        "that points to the next page.\n\n"
+    )
+)
 async def get_supplies(
     page: int = 1,
     page_size: int = DEFAULT_PAGE_SIZE,
