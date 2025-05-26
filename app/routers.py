@@ -102,9 +102,9 @@ async def row_counts(db: duckdb.DuckDBPyConnection = Depends(get_db)):
         "Returns a paginated list of customers.\n\n"
         "Pagination is controlled via the `page` query parameter (see `page`).\n\n"
         "Each page returns a fixed number of results (see `page_size`).\n\n"
-        "If more results are available, the response will include a `Link` header with `rel=\"next\"` "
+        'If more results are available, the response will include a `Link` header with `rel="next"` '
         "that points to the next page.\n\n"
-    )
+    ),
 )
 async def get_customers(
     page: int = 1,
@@ -155,9 +155,9 @@ def _enrich_orders(db: duckdb.DuckDBPyConnection, orders: list[dict]):
         "Returns a paginated list of orders.\n\n"
         "Pagination is controlled via the `page` query parameter (see `page`).\n\n"
         "Each page returns a fixed number of results (see `page_size`).\n\n"
-        "If more results are available, the response will include a `Link` header with `rel=\"next\"` "
+        'If more results are available, the response will include a `Link` header with `rel="next"` '
         "that points to the next page.\n\n"
-    )
+    ),
 )
 async def get_orders(
     page: int = 1,
@@ -204,9 +204,9 @@ async def get_order(order_id: str, db: duckdb.DuckDBPyConnection = Depends(get_d
         "Returns a paginated list of items.\n\n"
         "Pagination is controlled via the `page` query parameter (see `page`).\n\n"
         "Each page returns a fixed number of results (see `page_size`).\n\n"
-        "If more results are available, the response will include a `Link` header with `rel=\"next\"` "
+        'If more results are available, the response will include a `Link` header with `rel="next"` '
         "that points to the next page.\n\n"
-    )
+    ),
 )
 async def get_items(
     page: int = 1,
@@ -240,9 +240,9 @@ async def get_item(item_id: str, db: duckdb.DuckDBPyConnection = Depends(get_db)
         "Returns a paginated list of products.\n\n"
         "Pagination is controlled via the `page` query parameter (see `page`).\n\n"
         "Each page returns a fixed number of results (see `page_size`).\n\n"
-        "If more results are available, the response will include a `Link` header with `rel=\"next\"` "
+        'If more results are available, the response will include a `Link` header with `rel="next"` '
         "that points to the next page.\n\n"
-    )
+    ),
 )
 async def get_products(
     page: int = 1,
@@ -276,9 +276,9 @@ async def get_product(sku: str, db: duckdb.DuckDBPyConnection = Depends(get_db))
         "Returns a paginated list of stores.\n\n"
         "Pagination is controlled via the `page` query parameter (see `page`).\n\n"
         "Each page returns a fixed number of results (see `page_size`).\n\n"
-        "If more results are available, the response will include a `Link` header with `rel=\"next\"` "
+        'If more results are available, the response will include a `Link` header with `rel="next"` '
         "that points to the next page.\n\n"
-    )
+    ),
 )
 async def get_stores(
     page: int = 1,
@@ -312,9 +312,9 @@ async def get_store(store_id: str, db: duckdb.DuckDBPyConnection = Depends(get_d
         "Returns a paginated list of supplies.\n\n"
         "Pagination is controlled via the `page` query parameter (see `page`).\n\n"
         "Each page returns a fixed number of results (see `page_size`).\n\n"
-        "If more results are available, the response will include a `Link` header with `rel=\"next\"` "
+        'If more results are available, the response will include a `Link` header with `rel="next"` '
         "that points to the next page.\n\n"
-    )
+    ),
 )
 async def get_supplies(
     page: int = 1,

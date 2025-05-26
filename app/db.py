@@ -13,6 +13,8 @@ def get_db() -> duckdb.DuckDBPyConnection:
 
     if POPULATED_DB is None:
         db = duckdb.connect(database=":memory:")
+        db.sql("SET memory_limit = '500MB'")
+        db.sql("SET threads = 1")
         db.sql(
             "CREATE TABLE customers AS SELECT * FROM read_csv('seed/raw_customers.csv');"
         )
