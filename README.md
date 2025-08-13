@@ -48,14 +48,15 @@ This app is currently deployed to the dlthub digital ocean app platform. Pushes 
 ## Example dlt rest api source to sync orders from january 2017 and all other entities fully
 
 ```python
+from dlt.sources.rest_api import rest_api_source
+
 source = rest_api_source(
     {
         "client": {
-            "base_url": "http://localhost:8000",
+                "base_url": "https://jaffle-shop.dlthub.com/",
                 "paginator": {
                     "type": "header_link",
                 },
-                "session": FastAPISession(app),
             },
             "resources": [
                 "customers",
