@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from app import routers
 from app.const import API_V1_PREFIX
 from app.models import Message
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(
     title="dltHub Jaffle Shop API",
@@ -16,6 +17,14 @@ app = FastAPI(
         "url": "https://dlthub.com",
         "email": "support@dlt.hub",
     },
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+    allow_credentials=True,  # only if you use cookies/Authorization
 )
 
 # api v1
