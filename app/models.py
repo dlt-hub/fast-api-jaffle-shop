@@ -21,7 +21,7 @@ class Customer(BaseModel):
 class Supply(BaseModel):
     id: str
     name: str
-    cost: Decimal
+    cost: float
     perishable: bool
     sku: str
 
@@ -37,9 +37,9 @@ class Order(BaseModel):
     customer_id: str
     store_id: str
     ordered_at: datetime
-    subtotal: Decimal
-    tax_paid: Decimal
-    order_total: Decimal
+    subtotal: float
+    tax_paid: float
+    order_total: float
     items: Optional[List[Item]]
 
 
@@ -47,7 +47,7 @@ class Product(BaseModel):
     sku: str
     name: str
     type: str
-    price: Decimal
+    price: float
     description: str
 
 
@@ -55,4 +55,4 @@ class Store(BaseModel):
     id: str
     name: str
     opened_at: datetime
-    tax_rate: Decimal
+    tax_rate: float
