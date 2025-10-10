@@ -5,7 +5,6 @@ TODO: add pydantic models for jaffle shop
 from typing import Optional, List
 
 from pydantic import BaseModel
-from decimal import Decimal
 from datetime import datetime
 
 
